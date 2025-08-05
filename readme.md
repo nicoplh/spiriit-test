@@ -3,6 +3,7 @@
 - Se rendre dans le dossier du projet
 - Exécuter la commande ```docker compose up --build --force-recreate -d``` 
 - Éditer le fichier ```entrypoints.json``` dans ```public/build``` pour enlever les :8080 dans les quatre urls générées. (Je n'ai pas pris le temps de corriger mon webpack pour ne pas avoir ce problème.)
+- Lancer le script de migration ```docker compose exec php bin/console doctrine:migration:migrate```
 - Charger les fixtures avec la commande ```docker compose exec php bin/console doctrine:fixtures:load```
 
 ### Commande export CSV 
