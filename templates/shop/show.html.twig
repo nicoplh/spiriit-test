@@ -1,0 +1,29 @@
+{# templates/login/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <div class="card">
+                <img class="card-img-top" src="https://placehold.co/200" alt="{{ product.slug }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }} - {{ product.price }}€</h5>
+                    <p class="card-text">{{ product.description}}</p>
+
+                    {{ form_start(form) }}
+
+                    <div class="d-flex justify-content-between">
+                        {{ form_widget(form.amount) }}
+
+                        <button type="submit" class="btn btn-primary">
+                            Ajouter au panier
+                        </button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="{{ path('app_shop_index') }}" class="btn btn-primary">Retourner au magasin</a>
+{% endblock %}

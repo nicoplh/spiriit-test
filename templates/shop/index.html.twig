@@ -1,0 +1,19 @@
+{# templates/login/index.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        {% for product in products %}
+        <div class="col-3 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="https://placehold.co/200" alt="{{ product.slug }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ product.name }} - {{ product.price }}€</h5>
+                    <p class="card-text">{{ product.description}}</p>
+                    <a href="{{ path('app_shop_show', {slug: product.slug}) }}" class="btn btn-primary">Voir la fiche</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

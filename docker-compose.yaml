@@ -1,0 +1,36 @@
+services:
+  http:
+    build:
+      context: etc/docker/http
+      args:
+        ENABLED_SERVICES: "node php"
+        HOSTNAME: localhost
+    container_name: ${COMPOSE_PROJECT_NAME}.http
+    ports:
+    - "80:80"
+    links:
+    - node
+    - php
+    volumes:
+    - '.:/var/www/app'
+
+  node:
+    build:
+      context: etc/docker/node
+      args:
+        NODE_VERSION: 20
+    container_name: ${COMPOSE_PROJECT_NAME}.node
+    env_file:
+    - ./.env
+    volumes:
+    - '.:/var/www/app'
+
+  php:
+    build:
+      context: etc/docker/php
+      args:
+        PHP_VERSION: 8.2
+        TZ: Europe/Paris
+    container_name: ${COMPOSE_PROJECT_NAME}.php
+    volumes:
+    - '.:/var/www/app'

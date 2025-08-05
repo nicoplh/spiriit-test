@@ -1,0 +1,9 @@
+<div class="text-end pb-3">
+    <a class="h4" href="{{ path('app_shop_cart') }}">
+        {% if 0 < count %}
+            Vous avez {{ count }} articles dans votre panier.
+        {% else %}
+            Votre panier est vide.
+        {% endif %}
+    </a>
+</div>
